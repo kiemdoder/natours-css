@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* root font size - easy way to control all other properties with rem units */
+  /* The default browser font size is 16px so 62.5% gives us 10px which will make
+     the rest of our rem calculations easier */
+  font-size: 62.5%;
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box; /* border-box will include border + padding into the width/height */
+}

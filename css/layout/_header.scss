@@ -1,0 +1,35 @@
+.header {
+  height: 95vh; /* 95% of the view height */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg"); /* images will stack */
+  background-size: cover; /* cover container */
+  background-position: top; /* background img sticks to top */
+  position: relative;
+
+  clip-path: polygon(100% 0, 100% 73%, 0 100%, 0 0);
+
+  &__logo-box {
+    position: absolute; /* remember to set parent position to relative */
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+    /* width will be calculated by the browser */
+  }
+
+  &__text-box {
+    /* put box in center */
+    position: absolute;
+    left: 50%;
+    top: 40%; /* well, almost in the middle */
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+  }
+}

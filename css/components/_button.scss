@@ -1,0 +1,67 @@
+.btn {
+  &:link,
+  &:visited {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem; /* give a large number to make the sides into semi circles */
+
+    /* Time frame for the transitioning of properties even those influenced by :hover and :active
+         defined later. This will cause the transitions to animate and not jump from one state to 
+         the other. */
+    transition: all 0.2s;
+
+    /* pseudo element child is absolute so this should be relative */
+    position: relative;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background: $color-white;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /* x y blur-radius colour */
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* button was clicked */
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /* clicked shadow is smaller */
+  }
+
+  /*
+      Psuedo element
+    */
+  &::after {
+    content: ""; /* content required even if empty */
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+
+    position: absolute; /* remember, parent needs to be relative (see .btn:link, .btn:visited) */
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* apply 0% animation settings before animation starts */
+  }
+}
