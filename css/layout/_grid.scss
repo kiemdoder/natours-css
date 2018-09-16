@@ -1,6 +1,5 @@
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto; //auto will make the margin the same on both sides and will therefore center the element
 
   &:not(:last-child) {
@@ -15,7 +14,6 @@
 
   /* select elements with a class that starts with "col-" */
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child) {
