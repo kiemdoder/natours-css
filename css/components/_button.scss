@@ -1,4 +1,5 @@
 .btn {
+  &, // <- in case it is not a link - see styling below for when it is a button element
   &:link,
   &:visited {
     font-size: 1.6rem;
@@ -15,6 +16,10 @@
 
     /* pseudo element child is absolute so this should be relative */
     position: relative;
+
+    //the following is for when the button is an actual button element
+    border: none;
+    cursor: pointer;
   }
 
   &--white {
@@ -45,8 +50,10 @@
     }
   }
 
-  /* button was clicked */
-  &:active {
+  /* button was clicked and/or has focus*/
+  &:active,
+  &:focus {
+    outline: none; //do not show outline for form elements in focus
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /* clicked shadow is smaller */
   }
