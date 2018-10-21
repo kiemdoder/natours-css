@@ -1,0 +1,90 @@
+.popup {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, 0.8);
+  z-index: 200;
+
+  //hide with opacity in stead of display:none so that we can animate
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &__content {
+    @include center-both();
+    background-color: $color-white;
+    width: 75%;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden; //clip content that overflows (like at the round corners)
+    transition: all 0.5s 0.2s; //delay of .2s
+
+    opacity: 0;
+    // remember - transforms does not merge so we have to include the transform
+    // from center-both() above
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  &__left {
+    width: 33%;
+    display: table-cell; //make left and right the same height
+  }
+
+  &__right {
+    width: 67%;
+    display: table-cell; //make left and right the same height
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    //number of text columns
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+
+    hyphens: auto; //hypens for wrapping words
+  }
+
+  //show the modal when it is the target
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    //transforms must allways include all transforms because they do not stack
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
