@@ -21,6 +21,11 @@ body {
     font-weight: 400;
     letter-spacing: 3.5rem;
 
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -36,6 +41,11 @@ body {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.74rem;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+      fontsize: 1rem;
+    }
 
     animation: moveInRight 1s ease-out;
   }
@@ -53,6 +63,13 @@ body {
   );
   transition: all 0.2s;
   letter-spacing: 0.2rem;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   //mask the background with the text
   -webkit-background-clip: text;
