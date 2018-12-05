@@ -10,6 +10,11 @@
     }
   }
 
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
   /*
     The float in the columns will cause the row height to collapse. We include the clearfix here
     to cause the row height to be restored.
